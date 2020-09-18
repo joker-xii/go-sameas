@@ -23,6 +23,9 @@ func NewClient() *QueryClient {
 }
 
 func NewCustomClient(serviceUrl string, client *http.Client) *QueryClient {
+	if serviceUrl == "" {
+		serviceUrl = defaultSrvUrl
+	}
 	return &QueryClient{
 		ServiceURL: serviceUrl,
 		Client:     client,
