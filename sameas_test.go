@@ -13,7 +13,7 @@ func TestNewClient(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
-	assert.Equal(t, 50, result.NumDuplicates)
+	assert.Equal(t, int64(50), result.NumDuplicates)
 	assert.Equal(t, "http://www.wikidata.org/entity/Q645980", result.URI)
 
 	fmt.Println(result.URI, "has", result.NumDuplicates, "duplicates:")
