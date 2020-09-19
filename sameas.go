@@ -31,7 +31,7 @@ func (self *QueryClient) getResult(srcType, src string) (*Result, error) {
 	var result []Result
 	err = json.Unmarshal(data, &result)
 	if err != nil {
-		return nil, err
+		return nil, errors.New("data: " + string(data) + ",err: " + err.Error())
 	}
 	if result == nil || len(result) < 1 {
 		return nil, errors.New("parse response error: data " + string(data))
