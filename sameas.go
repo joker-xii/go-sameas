@@ -3,11 +3,12 @@ package sameas
 import (
 	"encoding/json"
 	"errors"
+	"html"
 	"io/ioutil"
 )
 
 func (self *QueryClient) getRawData(queryType, srcType, src string) ([]byte, error) {
-	reqUrl := self.ServiceURL + queryType + srcType + src
+	reqUrl := self.ServiceURL + queryType + srcType + html.EscapeString(src)
 
 	resp, err := self.Client.Get(reqUrl)
 	if err != nil {
